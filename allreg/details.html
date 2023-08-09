@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='pbd.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
+        #export-button{
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 50;
+            margin-top: 20px;
+            border: 2px solid white;
+            
+        }
+
+        #export-button:hover{
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            border: 2px solid black;
+            transition: 1000ms;
+
+        }
+        #reason{
+            
+            display: none;
+        }
+        table{
+            width:80%;
+            border-collapse: collapse;
+            width: 100%;
+            color: white;
+            font-family: monospace;
+            font-size: 25px;
+            text-align: left;
+            border: 2px solid black;
+            border-radius: 20px;
+
+
+        }
+        th{
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+
+        }
+        td{
+            color: white;
+            background: transparent;
+            width: fit-content;
+            max-width: 20%;
+            
+        }   
+
+    </style>
+    <script>
+ 
+      function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+        filename = filename?filename+'.xls':'excel_data.xls';
+        downloadLink = document.createElement("a");
+    
+    document.body.appendChild(downloadLink);
+    
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        downloadLink.download = filename;
+                downloadLink.click();
+    }
+}
+   
+
+      function xor(input, key) {
+        console.log(input,key)
+
+          let output = '';
+          for (let i = 0; i < input.length; i++) {
+            const charCode = input.charCodeAt(i) ^ key.charCodeAt(i % key.length);
+            output += String.fromCharCode(charCode);
+          }
+          return output;
+        } 
+        
+        
+       const pass="mayavi"
+async function getData()
+{
+    const data=await col.get();
+    console.log(data.data)
+    let html1=`<table style="width: 90%;" id="augreg">
+        <tr>
+            <th>Sr. No.</th>
+            <th style="display: none;">Date</th>
+            <th style="display: none;">dbid</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Branch</th>
+            <th>Mobile Number</th>
+            <th id="reason">Reason</th>
+        </tr>
+        `
+    let srno=0;
+    data.data.forEach(elemen => {
+        srno++;
+        element=elemen.data
+        console.log(element)
+        cid=xor(atob(element.cid),pass)
+        name=xor(atob(element.name),pass)
+        contact=xor(atob(element.contact),pass)
+        reason=xor(atob(element.reason),pass)
+        year=xor(atob(element.year),pass)
+        branch=xor(atob(element.branch),pass)
+        dbid=xor(atob(element.id),pass)
+        const timestampInMillis = element.date; 
+const date = new Date(timestampInMillis);
+
+const fd = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+const ft= `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+
+
+        html1+=`<tr>
+        <td>${srno}</td>
+        <td style="display: none;">${fd+" "+ft}</td>
+        <td style="display: none;">${dbid}</td>    
+        <td>${cid}</td>
+        <td>${name}</td>
+        <td>${year}</td>
+        <td>${branch}</td>
+
+        <td>${contact}</td>
+        <td  id="reason">${reason}</td>
+        </tr>`
+    });
+    html1=html1+`</table>
+    <button id="export-button" onclick="exportTableToExcel('augreg','mayavi_aug_reg')">Export to Excel</button>`
+    document.getElementById("reg").innerHTML=html1
+
+}
+
+        function fill()
+        {
+            getData()
+        }
+
+        fill()
+    </script>
+    <style>
+        body{
+            background-color: black;
+            background-size: cover;
+            background-position: center;
+            color: white;
+
+        }
+        .centre{
+            text-align: center;
+            color: white;
+        }
+        table{
+            width:80%;
+            width: 100%;
+            color: white;
+            font-family: monospace;
+            font-size: 25px;
+            text-align: left;
+            border: 2px solid white;
+
+        }
+        th{
+            text-align: center;
+            height: 50px;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 0, 0);
+        }
+        td{
+            border: 1px solid white;
+            height: 40px;
+            color: white;
+            background: transparent;
+            align-content: center;
+            text-align: center;
+        }
+        tr{
+            border: 1px solid white;
+            background-color: transparent;
+
+        }
+       
+
+    </style>
+</head>
+<body>
+    <h1 class="centre">Registrations</h1>
+    <div style="align-items: center; margin-left: 10%;">
+   
+    <div id="reg"></div>
+    
+</div>
+
+  
+</body>
+
+</html>
