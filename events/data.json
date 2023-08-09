@@ -1,0 +1,44 @@
+[
+
+    {
+        "id":"e1",
+        "name":"Craft Your VR Box",
+        "des":"The event organized by Team Mayavi on March 21st at M101 was a resounding success, offering participants an incredible opportunity to explore and build their very own virtual reality (VR) set. Collaborating with Cardboard VR, the event provided free resources to attendees, enabling them to immerse themselves in the world of VR technology.\n\nThroughout the event, participants were provided with step-by-step guidance and access to the necessary materials to create their personalized VR sets. The atmosphere was buzzing with excitement as attendees experimented with assembling and customizing their VR devices, exchanging ideas and collaborating with fellow enthusiasts.The hands-on experience allowed participants to gain a deeper understanding of the intricacies involved in building a VR set. Team Mayavi's experts were on hand to answer questions, provide technical support, and offer valuable insights into the world of VR technology.",
+        "category":"Virtual reality",
+        "date":"21st March, 2023",
+        "venue":"M101",
+        "img":[
+            "assets/img/projects/craftyourvr2.jpg",
+            "assets/img/projects/craftyourvr2.jpg",
+            "assets/img/projects/craftyourvr3.jpg"
+        ]
+        
+    },
+    {
+        "id":"e2",
+        "name":"Mayavi Marathon - Unleashing Game Development Skills",
+        "des":"The much-anticipated Mayavi Marathon, a thrilling event focused on game development, came to a grand conclusion on June25th . The event provided participants with an exhilarating platform to showcase their game development skills, allowing them to unleash their creativity and compete for the title of Mayavi Marathon champion.\n\nMayavi Marathon was an event that celebrated the convergence of creativity and competition, providing participants with a platform to showcase their game development skills. The event not only sparked innovation and ingenuity but also fostered a sense of community among game enthusiasts. Team Mayavi looks forward to hosting more such extraordinary events in the future, continuing to empower and inspire the game development community.",
+        "category":"Game Development",
+        "date":"24th May - 25th June , 2023",
+        "venue":"Online",
+        "img":[
+            "assets/img/projects/marathon1.png",
+            "assets/img/projects/marathon2.png",
+            "assets/img/projects/marathon3.png",
+            "assets/img/projects/marathon4.png"
+        ]
+    },
+    {
+        "id":"e3",
+        "name":"",
+        "des":"",
+        "category":"",
+        "date":"",
+        "venue":"",
+        "img":[
+           
+        ]
+    }
+
+
+]
