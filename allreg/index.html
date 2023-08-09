@@ -15,22 +15,22 @@
             font-family: 'Roboto', sans-serif;
         }
         #export-button{
-            background-color: #000000;
-            color: rgb(255, 255, 255);
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
             border-radius: 5px;
             padding: 10px;
             font-size: 20px;
             cursor: pointer;
             margin-right: 50;
             margin-top: 20px;
-            border: 2px solid white;
+            border: 2px solid rgb(0, 0, 0);
             
         }
 
         #export-button:hover{
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            border: 2px solid black;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(255, 255, 255);
             transition: 1000ms;
 
         }
@@ -38,31 +38,57 @@
             
             display: none;
         }
-        table{
-            width:80%;
-            border-collapse: collapse;
-            width: 100%;
-            color: white;
-            font-family: monospace;
-            font-size: 25px;
-            text-align: left;
-            border: 2px solid black;
-            border-radius: 20px;
-
-
-        }
-        th{
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-
-        }
-        td{
-            color: white;
-            background: transparent;
-            width: fit-content;
-            max-width: 20%;
-            
-        }   
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+  }
+  
+  .content {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  th, td {
+    padding: 10px;
+    width: 20%;
+    max-width: max-content;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .button-container {
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+       
 
     </style>
     <script>
@@ -166,58 +192,24 @@ const ft= `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes(
         fill()
     </script>
     <style>
-        body{
-            background-color: black;
-            background-size: cover;
-            background-position: center;
-            color: white;
-
-        }
+       
         .centre{
             text-align: center;
             color: white;
         }
-        table{
-            width:80%;
-            width: 100%;
-            color: white;
-            font-family: monospace;
-            font-size: 25px;
-            text-align: left;
-            border: 2px solid white;
-
-        }
-        th{
-            text-align: center;
-            height: 50px;
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
-            border: 1px solid rgb(0, 0, 0);
-        }
-        td{
-            border: 1px solid white;
-            height: 40px;
-            color: white;
-            background: transparent;
-            align-content: center;
-            text-align: center;
-        }
-        tr{
-            border: 1px solid white;
-            background-color: transparent;
-
-        }
+        
        
 
     </style>
 </head>
 <body>
-    <h1 class="centre">Registrations</h1>
-    <div style="align-items: center; margin-left: 10%;">
+    <div class="content">
+        <h1>Aug Recruitments</h1>
+      </div>    
    
     <div id="reg"></div>
     
-</div>
+
 
   
 </body>
