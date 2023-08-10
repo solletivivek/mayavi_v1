@@ -84,11 +84,9 @@
 
 <div id="m"></div>
 
-<footer id="footer" class="footer">
-  <iframe src="../events/footer.html" frameborder="0"></iframe><iframe src="../events/footer.html" frameborder="0"></iframe>
-</footer>
 
-<script>fetch('footer.html').then(response => response.text()).then(content => {document.getElementById('footer-content').innerHTML = content;}).catch(error => console.error('Error loading included content:', error));</script>
+
+<script>fetch('../footer.html').then(response => response.text()).then(content => {document.getElementById('footer-content').innerHTML = content;}).catch(error => console.error('Error loading included content:', error));</script>
 <div id="footer-content"></div>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -105,15 +103,7 @@
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/js/main.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-      $(document).ready(function() {
-          // Load footer content using jQuery AJAX
-          $.get("../events/footer.html", function(data) {
-              $("footer").html(data);
-          });
-      });
-  </script>
+  
 
 </body>
 
