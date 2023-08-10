@@ -11,8 +11,11 @@
   <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
 
   <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon"  href="assets/img/favicon.ico">
   <script src='https://cdn.jsdelivr.net/npm/@polybase/client@latest/dist/bundle.min.js'></script>
 
   <!-- Google Fonts -->
@@ -84,7 +87,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/projects/marathon.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../assets/img/projects/marathon.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>We are Hiring</h2>
@@ -147,7 +150,64 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
-    <iframe src="events/footer.html" frameborder="0"></iframe>
+    
+  <div class="footer-content position-relative">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-info">
+            <h3>Mayavi</h3>
+            <p>
+              KL University <br>
+              Green Fields, Vaddeswaram, Guntur District<br><br>
+              <strong>Email:</strong>support@klefmayavi.tech<br>
+            </p>
+            <div class="social-links d-flex mt-3">
+              <a href="https://t.me/+q38bOXvcREBmMGFl" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
+              <a href="https://www.instagram.com/klef.mayavi/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/mayavi-technology-club/mycompany/" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              <a href="https://discord.com/invite/UrWKGFffhG" class="d-flex align-items-center justify-content-center"><i class="bi bi-discord"></i></a>
+              <a href="https://www.youtube.com/channel/UCbDBefAKb5m5FigI2j0UQPQ" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About us</a></li>
+            <li><a href="../events/eventss.html">Events</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Upcomming</h4>
+          <ul>
+            <li><a href="../register/register.html">Register Here</a></li>
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legal text-center position-relative">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mayavi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+            <a href="../developers.html">Made with ❤️</a>
+      </div>
+    </div>
+  </div>
+
+
   </footer>
   <!-- End Footer -->
 
@@ -170,14 +230,7 @@
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-      $(document).ready(function() {
-          // Load footer content using jQuery AJAX
-          $.get("events/footer.html", function(data) {
-              $("footer").html(data);
-          });
-      });
+ 
   </script>
   </body>
 

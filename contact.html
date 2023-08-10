@@ -87,7 +87,7 @@
           <div class="col-lg-6">
             <div class="info-item  d-flex flex-column justify-content-center align-items-center">
               <i class="bi bi-map"></i>
-              <h3>Our Address</h3>
+              <h3>Our Club Room</h3>
               <p>C 608 ,C-Block ,KL University ,Vaddeswaram, Guntur District</p>
             </div>
           </div><!-- End Info Item -->
@@ -117,29 +117,43 @@
           </div><!-- End Google Maps -->
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form name="submit-to-google-sheet" class="php-email-form">
               <div class="row gy-4">
                 <div class="col-lg-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" size="50" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-lg-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" size="50" name="email" id="email" placeholder="Your Email" required>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" size="50" placeholder="Subject" required>
               </div>
               <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" size="150" placeholder="Message" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+             
+              <div class="text-center"><button type="submit" value="submit">Send Message</button></div>
             </form>
           </div><!-- End Contact Form -->
+
+
+          <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxi-x1Drl0zhK7eOg4o0hgDFFcI_-yK6YAfGgW46OOuhPTkzyLmxtKlt02wr_LTymljVQ/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById('msg')
+    
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                   msg.innerHTML = "Thanks for Contacting me"
+                   setTimeout(function(){ msg.innerHTML = "" }, 3000);
+                })
+                form.reset()
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
 
         </div>
 
