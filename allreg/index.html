@@ -92,6 +92,23 @@
 
     </style>
     <script>
+
+
+      async function deleteData(id)
+      {
+        const recordDat = await col
+      .record(id)
+      .call("del", []);
+      console.log(recordDat)
+      alert("Deleted Successfully")  
+      location.reload();    
+      }
+
+      function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("augreg").deleteRow(i);
+
+      }
  
       function exportTableToExcel(tableID, filename = ''){
     var downloadLink;
@@ -144,6 +161,7 @@ async function getData()
             <th>Branch</th>
             <th>Mobile Number</th>
             <th id="reason">Reason</th>
+            <th id="delete">Delete</th>
         </tr>
         `
     let srno=0;
@@ -176,6 +194,7 @@ const ft= `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes(
 
         <td>${contact}</td>
         <td  id="reason">${reason}</td>
+        <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
         </tr>`
     });
     html1=html1+`</table>
