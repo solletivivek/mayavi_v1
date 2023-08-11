@@ -10,6 +10,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -43,10 +44,45 @@
   <!-- Template Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
 
-  
+  <script>
+    
+
+async function getUsers1() {
+    let url = 'data.json';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+    
+  }
+
+async function fillPage()
+{
+    var data=await getUsers1();
+    console.log(data);
+    var html='';
+   data.forEach(event => {
+    html+=`<div  class="col-lg-4 col-md-6 portfolio-item filter-repairs">
+    <div class="portfolio-content h-100 fillet">
+      <img src="assets/img/projects/animeta2.jpg" class="img-fluid">
+      <div class="portfolio-info">
+        <a href="./info?name=${event.name}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+      </div>
+    </div>
+  </div>`
+   });
+    
+  document.getElementById('allev').innerHTML=html
+}
+
+fillPage()
+
+  </script>
 </head>
 
-<body>
+<body >
 
     <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center">
@@ -73,7 +109,7 @@
         </nav><!-- .navbar -->
       </div>
     </header><!-- End Header -->
-  <main id="main">
+  <main id="main" >
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../assets/img/projects/marathon.jpg');">
@@ -96,164 +132,16 @@
   
            <!-- End Projects Filters -->
   
-            <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling" >
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/marathon.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4></h4> -->
-                    <!-- <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/remodeling-1.jpg" title="Remodeling 1" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/craftyourvr.jpg" class="img-fluid" alt="">
-                  <div            class="portfolio-info">
-                    <!-- <h4>Construction 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/construction-1.jpg" title="Construction 1" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="./info?name=Craft Your VR Box" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/Unityfundamentals.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Repairs 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/repairs-1.jpg" title="Repairs 1" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/learnwithmayavi2.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Design 1</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/design-1.jpg" title="Repairs 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event4.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
+            <div class="row gy-4 portfolio-container" id="allev" data-aos="fade-up" data-aos-delay="200">
               
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/animeta.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Construction 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/construction-2.jpg" title="Construction 2" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event5.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              
-              <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/learnhackathon.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Design 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/design-2.jpg" title="Repairs 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event6.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/indrastra.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Remodeling 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/remodeling-3.jpg" title="Remodeling 3" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event7.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-              <div class="col-lg-4 col-md-6 portfolio-item filter-design">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/sparkmania.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Design 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/design-3.jpg" title="Repairs 3" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event9.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-construction">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/unreal1.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Construction 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/construction-3.jpg" title="Construction 3" data-gallery="portfolio-gallery-construction" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="event8.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-              <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/unreal2.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Repairs 3</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/repairs-3.jpg" title="Repairs 2" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-remodeling">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/learnwithmayavi1.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Remodeling 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/remodeling-2.jpg" title="Remodeling 2" data-gallery="portfolio-gallery-remodeling" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-
-              <div class="col-lg-4 col-md-6 portfolio-item filter-repairs">
-                <div class="portfolio-content h-100 fillet">
-                  <img src="assets/img/projects/animeta2.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <!-- <h4>Repairs 2</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur</p> -->
-                    <!-- <a href="assets/img/projects/repairs-2.jpg" title="Repairs 2" data-gallery="portfolio-gallery-repairs" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a> -->
-                    <a href="project-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                  </div>
-                </div>
-              </div><!-- End Projects Item -->
-  
-  
-            </div><!-- End Projects Container -->
-  
-          </div>
+             
+          
   
         </div>
       </section><!-- End Our Projects Section -->
 
     </main><!-- End #main -->
-
 
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">

@@ -25,8 +25,11 @@
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
  <style>
+  :root{
+    --color-primary: #be4ba7;
+  }
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
   background-color: var(--color-primary);
   display: none;
@@ -60,9 +63,7 @@
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="../index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+      <a href="index.html" class="logo d-flex align-items-center">
         <h1>Mayavi<span></span></h1>
         
       </a>
@@ -71,29 +72,86 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="../index.html" >Home</a></li>
-          <li><a href="../about.html">About Us</a></li>
-          <li><a href="../events/eventss.html" class="active">Events</a></li>
-          <!-- <li><a h../ref="projects.html">Blogs</a></li> -->
-          <li><a href="../team.html" >Team</a></li>
-          
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="events.html" class="active">Events</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Team</a></li>
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-      </nav><!-- .navbar -->
+      </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
 
+<div id="m"></div>
 
 
-  <footer id="footer" class="footer">
-    <iframe src="../events/footer.html" frameborder="0"></iframe>
-  </footer>
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <script src="script.js"></script>
+  <script src="infoscript.js"></script>
+  <footer id="footer" class="footer">
+   
+    <div class="footer-content position-relative">
+      <div class="container">
+        <div class="row">
+  
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Mayavi</h3>
+              <p>
+                KL University <br>
+                Green Fields, Vaddeswaram, Guntur District<br><br>
+                <strong>Email:</strong>support@klefmayavi.tech<br>
+              </p>
+              <div class="social-links d-flex mt-3">
+                <a href="https://t.me/+q38bOXvcREBmMGFl" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
+                <a href="https://www.instagram.com/klef.mayavi/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/mayavi-technology-club/mycompany/" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+                <a href="https://discord.com/invite/UrWKGFffhG" class="d-flex align-items-center justify-content-center"><i class="bi bi-discord"></i></a>
+                <a href="https://www.youtube.com/channel/UCbDBefAKb5m5FigI2j0UQPQ" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-2 footer-links">
+            <h4>Quick links</h4>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../about.html">About us</a></li>
+              <li><a href="../events/eventss.html">Events</a></li>
+              <li><a href="../team.html">Team</a></li>
+              <li><a href="../contact.html">Contact</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-3 col-md-2 footer-links">
+            <h4>Upcomming</h4>
+            <ul>
+              <li><a href="../register/register.html">Register Here</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-legal text-center position-relative">
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Mayavi</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+              <a href="../developers.html">Made with ❤️</a>
+        </div>
+      </div>
+    </div>
+  
+  
+    </footer>
 
   <div id="preloader"></div>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -104,17 +162,6 @@
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/js/main.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-      $(document).ready(function() {
-          // Load footer content using jQuery AJAX
-          $.get("../events/footer.html", function(data) {
-              $("footer").html(data);
-          });
-      });
-  </script>
-
 </body>
 
 </html>

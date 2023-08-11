@@ -2,20 +2,6 @@
 
     {
         "id":"e1",
-        "name":"Craft Your VR Box",
-        "des":"The event organized by Team Mayavi on March 21st at M101 was a resounding success, offering participants an incredible opportunity to explore and build their very own virtual reality (VR) set. Collaborating with Cardboard VR, the event provided free resources to attendees, enabling them to immerse themselves in the world of VR technology.\n\nThroughout the event, participants were provided with step-by-step guidance and access to the necessary materials to create their personalized VR sets. The atmosphere was buzzing with excitement as attendees experimented with assembling and customizing their VR devices, exchanging ideas and collaborating with fellow enthusiasts.The hands-on experience allowed participants to gain a deeper understanding of the intricacies involved in building a VR set. Team Mayavi's experts were on hand to answer questions, provide technical support, and offer valuable insights into the world of VR technology.",
-        "category":"Virtual reality",
-        "date":"21st March, 2023",
-        "venue":"M101",
-        "img":[
-            "assets/img/projects/craftyourvr2.jpg",
-            "assets/img/projects/craftyourvr2.jpg",
-            "assets/img/projects/craftyourvr3.jpg"
-        ]
-        
-    },
-    {
-        "id":"e2",
         "name":"Mayavi Marathon - Unleashing Game Development Skills",
         "des":"The much-anticipated Mayavi Marathon, a thrilling event focused on game development, came to a grand conclusion on June25th . The event provided participants with an exhilarating platform to showcase their game development skills, allowing them to unleash their creativity and compete for the title of Mayavi Marathon champion.\n\nMayavi Marathon was an event that celebrated the convergence of creativity and competition, providing participants with a platform to showcase their game development skills. The event not only sparked innovation and ingenuity but also fostered a sense of community among game enthusiasts. Team Mayavi looks forward to hosting more such extraordinary events in the future, continuing to empower and inspire the game development community.",
         "category":"Game Development",
@@ -26,19 +12,126 @@
             "assets/img/projects/marathon2.png",
             "assets/img/projects/marathon3.png",
             "assets/img/projects/marathon4.png"
-        ]
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+        
+        
+        
+    },
+    {
+        "id":"e2",
+        "name":"Craft Your VR Box",
+        "des":"The event organized by Team Mayavi on March 21st at M101 was a resounding success, offering participants an incredible opportunity to explore and build their very own virtual reality (VR) set. Collaborating with Cardboard VR, the event provided free resources to attendees, enabling them to immerse themselves in the world of VR technology.\n\nThroughout the event, participants were provided with step-by-step guidance and access to the necessary materials to create their personalized VR sets. The atmosphere was buzzing with excitement as attendees experimented with assembling and customizing their VR devices, exchanging ideas and collaborating with fellow enthusiasts.The hands-on experience allowed participants to gain a deeper understanding of the intricacies involved in building a VR set. Team Mayavi's experts were on hand to answer questions, provide technical support, and offer valuable insights into the world of VR technology.",
+        "category":"Virtual reality",
+        "date":"21st March, 2023",
+        "venue":"M101",
+        "img":[
+            "assets/img/projects/craftyourvr1.jpg",
+            "assets/img/projects/craftyourvr2.jpg",
+            "assets/img/projects/craftyourvr3.jpg"
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+        
+        
     },
     {
         "id":"e3",
-        "name":"",
-        "des":"",
-        "category":"",
-        "date":"",
-        "venue":"",
+        "name":"Unity Fundamentals of Game Development",
+        "des":"On 23rd February 2023, an Introduction to Unity Game Development event was held in Room C407. Around 30 attendees, including beginners and experienced individuals, learned about Unity's interface, asset creation, scripting, and game prototype development. The interactive session provided hands-on experience and encouraged participant engagement. The event received positive feedback for its organization, content delivery, and instructor expertise. Participants left with a solid foundation in Unity game development and expressed enthusiasm for applying their newfound knowledge to their own projects. The event followed a structured agenda to ensure participants gained a comprehensive understanding of Unity game development.  ",
+        "category":"Game Development",
+        "date":"23rd February, 2023",
+        "venue":"C407",
         "img":[
+            "assets/img/projects/Unityfundamentals.jpg"
            
-        ]
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e4",
+        "name":"L-Earn with MAYAVI",
+        "des":"MAYAVI team conducted an engaging workshop titled L-Earn: Learn and Earn in Room C407 On 2nd February 2023 . The session aimed to guide participants on how to generate their own pocket money. Attendees were provided with valuable insights and practical strategies for earning money. The event took place from 5:00 PM to 7:00 PM and attracted an enthusiastic audience. The workshop successfully empowered participants with the knowledge and tools necessary to explore opportunities for financial independence.",
+        "category":"Skill Development",
+        "date":"2nd February , 2023",
+        "venue":"C407",
+        "img":[
+            "assets/img/projects/learn1.jpg",
+            "assets/img/projects/learn2.jpg",
+            "assets/img/projects/learn3.jpg"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e5",
+        "name":"Animeta",
+        "des":"The event organized by TEAM MAYAVI introduced participants to the powerful 3D computer graphics software, Blender. The session provided insights into Blender's capabilities, such as creating animated films, visual effects, 3D-printed models, motion graphics, and interactive 3D applications. Attendees also learned about Blender's historical association with video game development. The event aimed to inspire participants to explore the vast possibilities of Blender in various creative fields. The engaging session witnessed active participation, with attendees gaining knowledge and inspiration to utilize Blender's features for their own projects. The event successfully highlighted the significance of Blender as a free and open-source tool for artistic expression and visual storytelling.",
+        "category":"Graphics and Design",
+        "date":"20th October, 2022",
+        "venue":"C block 3rd floor lab",
+        "img":[
+            "assets/img/projects/animeta1.1.jpg",
+            "assets/img/projects/animeta1.2.jpg",
+            "assets/img/projects/animeta1.3.jpg",
+            "assets/img/projects/animeta2.jpg"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e6",
+        "name":"leARn Hackathon - KL University",
+        "des":"TEAM MAYAVI collaborated with Reskill and Spark AR (Meta) to host an event that offered participants the opportunity to showcase their creativity as Instagram and Facebook (now Meta) filter creators. Attendees were encouraged to register, submit their effects, and compete for exciting prizes. The event featured attractive rewards, including OnePlus Buds Pro for the winner, an Amazon Echo Show for the 1st runner-up, and an Amazon Alexa - 4th Generation for the 2nd runner-up. Certificates and goodies from Meta were given to each participant. The event took place at the RND Auditorium from 9 AM to 5 PM and concluded successfully.",
+        "category":"Augmented Reality",
+        "date":"18rd October , 2022",
+        "venue":"RND Auditorium",
+        "img":[
+            "assets/img/projects/hack1.jpg",
+            "assets/img/projects/hack2.jpg",
+            "assets/img/projects/hack3.jpg"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e7",
+        "name":"Indrastra",
+        "des":"Astras: The distinctive tools and weaponry known as astras serve as our guardians and enablers.Here, you can view the Astraverse of KL Technology Clubs, which represents the distinctive weapons of each technology club.This particular astra will stand in for the distinction and significance of each club. Each club's capacity is inevitable as it is the future, the divine, and other factors that are the primary drivers of the current technological field. These astras are each club's future endeavours or tools, and each club views them as their main tool for achieving its long-term, ambitious objectives.",
+        "category":"Working on Technology",
+        "date":"16th October , 2022",
+        "venue":"R610",
+        "img":[
+            "assets/img/projects/indrastra.jpg",
+            "assets/img/projects/indrastra.mp4"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e8",
+        "name":"SparkMania",
+        "des":"During Day-1 of our immersive workshop, we delved into the exciting world of Spark AR, a dynamic platform that empowers you to craft captivating Augmented Reality (AR) effects tailored for mobile devices. Regardless of your technical background, Spark AR offers a comprehensive suite of tools, from intuitive patching to seamless animation capabilities. This enables you to bring your AR visions to life effortlessly. Whether you possess 3D files or engaging sounds, Spark AR allows you to seamlessly integrate them into your creations. The flexibility to build with or without code further enhances your creative freedom, providing a versatile environment to nurture your AR expertise.As we transitioned into Day-2, the spotlight shifted to Core Games, a realm brimming with opportunities for all aspiring game developers. Here, the universe of game creation unfolds before you, with an endless array of free games, captivating experiences, and engaging events. Core Games takes the formidable power of Unreal Engine and presents it through an accessible interface, transcending barriers for both newcomers and seasoned professionals alike. Designed with a focus on simplicity, Core Games empowers individuals from various walks of life to partake in the game development process. Whether you're a novice seeking to embark on your creative journey or a seasoned pro looking for a fresh canvas, Core Games beckons you to take a seat and embrace the boundless realm of game development. Don't miss out on this opportunity to shape your gaming dreams into reality.",
+        "category":"GUX",
+        "date":"5th & 6th September, 2022",
+        "venue":"C225",
+        "img":[
+            "assets/img/projects/sparkmania1.jpg",
+            "assets/img/projects/sparkmania2.jpg"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
+    },
+    {
+        "id":"e9",
+        "name":"Introduction to Unreal Engine",
+        "des":"This is all about learning concepts in a fun-loving manner. In this session, you will be introduced to THE UNREAL ENGINE with all the basics regarding Game Development.",
+        "category":"Game Development",
+        "date":"21st October , 2022",
+        "venue":"C 3rd Floor Lab",
+        "img":[
+            "assets/img/projects/unreal1.jpg"
+           
+        ],
+        "poster":"assets/img/projects/animeta2.jpg"
     }
-
-
 ]
