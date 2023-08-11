@@ -187,6 +187,7 @@
             <th>Year</th>
             <th>Branch</th>
             <th>Mobile Number</th>
+            <th>Email</th>
             <th id="reason">Reason</th>
             <th id="delete">Delete</th>
         </tr>
@@ -203,6 +204,7 @@
         year = xor(atob(element.year), pass)
         branch = xor(atob(element.branch), pass)
         dbid = xor(atob(element.id), pass)
+        email=xor(atob(element.mail), pass)
         const timestampInMillis = element.date;
         const date = new Date(timestampInMillis);
 
@@ -219,6 +221,7 @@
         <td>${year}</td>
         <td>${branch}</td>
         <td>${contact}</td>
+        <td>${email}</td>
         <td  id="reason">${reason}</td>
         <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
         </tr>`
