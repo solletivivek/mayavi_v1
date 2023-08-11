@@ -162,7 +162,11 @@
     async function getData() {
       const data = await col.get();
       console.log(data.data)
-      let html1 = `<table style="width: 90%;" id="augreg">
+      let html1 = `
+      <div class="content">
+    <h1>Aug Recruitments</h1>
+  </div>
+  <table style="width: 90%;" id="augreg">
         <tr>
             <th>Sr. No.</th>
             <th style="display: none;">Date</th>
@@ -203,7 +207,6 @@
         <td>${name}</td>
         <td>${year}</td>
         <td>${branch}</td>
-
         <td>${contact}</td>
         <td  id="reason">${reason}</td>
         <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
@@ -230,9 +233,7 @@
 </head>
 
 <body>
-  <div class="content">
-    <h1>Aug Recruitments</h1>
-  </div>
+ 
 
   <div id="reg"></div>
 
