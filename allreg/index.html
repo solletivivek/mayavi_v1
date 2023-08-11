@@ -124,11 +124,22 @@
     }
 
     function exportTableToExcel(tableID, filename = '') {
+      date=new Date();
+     var fd = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+        var ft = `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+      console.log(fd,ft)
+      if (filename == '') {
+        filename = tableID;
+      }
+      console.log(fd)
+      ft=ft.replace(/:/g,".");
+      fd=fd.replace(/:/g,"/");
+
       var downloadLink;
       var dataType = 'application/vnd.ms-excel';
       var tableSelect = document.getElementById(tableID);
       var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-      filename = filename ? filename + '.xls' : 'excel_data.xls';
+      filename = fd+"-"+ft+"-"+ 'mayavireg.xls';
       downloadLink = document.createElement("a");
 
       document.body.appendChild(downloadLink);
