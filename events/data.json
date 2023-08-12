@@ -105,6 +105,7 @@
             "assets/img/projects/indrastra.mp4"
            
         ],
+        "video": "assets/img/projects/indrastra.mp4",
         "poster":"assets/img/projects/indrastra.jpg"
     },
     {
@@ -119,7 +120,7 @@
             "assets/img/projects/sparkmania2.jpg"
            
         ],
-        "poster":"assets/img/projects/learnhackathon.jpg"
+        "poster":"assets/img/projects/sparkmania.jpg"
     },
     {
         "id":"e9",
