@@ -101,11 +101,10 @@
         "date":"16th October , 2022",
         "venue":"R610",
         "img":[
-            "assets/img/projects/indrastra.jpg",
-            "assets/img/projects/indrastra.mp4"
+            "assets/img/projects/indrastra.jpg"
            
         ],
-        "video": "assets/img/projects/indrastra.mp4",
+        
         "poster":"assets/img/projects/indrastra.jpg"
     },
     {
