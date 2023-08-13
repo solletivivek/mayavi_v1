@@ -132,5 +132,22 @@
            
         ],
         "poster":"assets/img/projects/unreal1.jpg"
+    },
+    {
+        "id":"e10",
+        "name":"Mayavi Marathon - Unleashing Game Development Skills",
+        "des":"The much-anticipated Mayavi Marathon, a thrilling event focused on game development, came to a grand conclusion on June25th . The event provided participants with an exhilarating platform to showcase their game development skills, allowing them to unleash their creativity and compete for the title of Mayavi Marathon champion.\n\nMayavi Marathon was an event that celebrated the convergence of creativity and competition, providing participants with a platform to showcase their game development skills. The event not only sparked innovation and ingenuity but also fostered a sense of community among game enthusiasts. Team Mayavi looks forward to hosting more such extraordinary events in the future, continuing to empower and inspire the game development community.",
+        "category":"Game Development",
+        "date":"24th May - 25th June , 2023",
+        "venue":"Online",
+        "img":[
+            "assets/img/projects/marathon1.png",
+            "assets/img/projects/marathon2.png",
+            "assets/img/projects/marathon3.png",
+            "assets/img/projects/marathon4.png"
+        ],
+        "poster":"assets/img/projects/mmarathon.png"        
+        
+        
     }
 ]
