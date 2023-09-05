@@ -261,7 +261,7 @@
 
 //mail
 async function sendmail(name,email,id,cid,year,branch) {
-    document.getElementById("regbut").innerHTML="Sending mail..."
+    document.getElementById("regbut").innerHTML="Registration Successfull A mail will be sent to you shortly"
     
     let url = `https://api.softpage.tech/mail/mayavi?id=${cid}&name=${name}&email=${email}&confirmationid=${id}&branch=${branch}&year=${year}`;
     try {
