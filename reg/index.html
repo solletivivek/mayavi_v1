@@ -107,18 +107,64 @@
   <script>
 
 
-password=prompt("Enter Password to access this page")
-console.log(password)
 pasa='eTIx'
+function setCookie(cname,cvalue,exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    location.reload();
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function checkCookie() {
+    let user = getCookie("passgm");
+    if (user != "" && user.localeCompare(atob(pasa))==0) {
+       fill()
+    } 
+    else {
+      password=prompt("Enter Password to access this page")
+console.log(password)
 console.log(password.localeCompare(atob(pasa)))
 if(password.localeCompare(atob(pasa)))
 {
-  alert("Not Authorized")
+  alert("Not Authorized/nThis page will be closed")
   window.close()
 }
 else{
   alert("Authorized Successfully")
+  setCookie("passgm",password,30)
+  fill()
+
 }
+       
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
 const col = db.collection("sessionReg");
 
@@ -244,7 +290,8 @@ const col = db.collection("sessionReg");
       getData()
     }
 
-    fill()
+    checkCookie()
+
   </script>
   <style>
     .centre {
