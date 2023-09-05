@@ -4,11 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-741QDCWYD7"></script>
+<script src="https://cdn.jsdelivr.net/npm/@polybase/client@0.6.6/dist/bundle.min.js"></script>
 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-741QDCWYD7');
+</script>
   <title>Mayavi-regestration</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
+
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
@@ -73,8 +84,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index" >Home</a></li>
-          <li><a href="about" class="active">About Us</a></li>
-          <li><a href="events/eventss/">Events</a></li>
+          <li><a href="about">About Us</a></li>
+          <li><a href="events/">Events</a></li>
           <!-- <li><a href="projects.html">Blogs</a></li> -->
           <li><a href="team">Team</a></li>
           
@@ -90,7 +101,7 @@
     <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../assets/img/projects/marathon.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
-        <h2>We are Hiring</h2>
+        <h2>Game Development Session - 2</h2>
         <ol>
           <li><a href="index">Home</a></li>
           <li>Register</li>
@@ -115,7 +126,7 @@
                         <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
                       </div>
                       <div class="col-lg-6 form-group">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Your college mail" required>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Personal mail  (gmail)" required>
                       </div>
                       <div class="col-lg-6 form-group">
                         <input type="number" name="name" class="form-control" id="id" placeholder="Your Id number" required>
@@ -126,15 +137,10 @@
                       <div class="col-lg-6 form-group">
                         <input type="text" name="name" class="form-control" id="branch" placeholder="Your branch" required>
                       </div>
-                      <div class="col-lg-6 form-group">
-                        <input type="number" name="name" class="form-control" id="con" placeholder="Contact Number" required>
-                      </div>
-                      <div class="col-12 form-group"> <!-- Add class 'col-12' to make the textarea full width on small devices -->
-                        <textarea class="form-control" name="message" rows="5" id="reason" placeholder="why do you want to join mayavi" required></textarea>
-                      </div>
+                   
                       <div class="col-12 text-center"> <!-- Add class 'col-12' to center the button on small devices -->
                         
-                        <button type="submit" class="s1" id="regbut">Register</button>
+                        <button type="submit" class="s1" id="regbut" >Register</button>
                         <div class="status"></div>
                       </div>
                     </div>
@@ -161,7 +167,7 @@
             <p>
               KL University <br>
               Green Fields, Vaddeswaram, Guntur District<br><br>
-              <strong>Email:</strong>support@klefmayavi.tech<br>
+              <strong>Email : </strong><a href="mailto:support@klefmayavi.tech">support@klefmayavi.tech</a><br>
             </p>
             <div class="social-links d-flex mt-3">
               <a href="https://t.me/+q38bOXvcREBmMGFl" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
@@ -176,18 +182,18 @@
         <div class="col-lg-3 col-md-2 footer-links">
           <h4>Quick links</h4>
           <ul>
-            <li><a href="../index">Home</a></li>
-            <li><a href="../about">About us</a></li>
-            <li><a href="../events/">Events</a></li>
-            <li><a href="../team">Team</a></li>
-            <li><a href="../contact">Contact</a></li>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about.html">About us</a></li>
+            <li><a href="../events">Events</a></li>
+            <!-- <li><a href="../team.html">Team</a></li> -->
+            <li><a href="../contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-2 footer-links">
           <h4>Upcomming</h4>
           <ul>
-            <li><a href="../register/register">Register Here</a></li>
+            <li><a href="../register/register.html">Register Here</a></li>
             
           </ul>
         </div>
@@ -202,7 +208,7 @@
         &copy; Copyright <strong><span>Mayavi</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-            <a href="../developers">Made with ❤️</a>
+            <a href="../developers.html">Made with ❤️</a>
       </div>
     </div>
   </div>
@@ -240,28 +246,79 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <script>
-    
-    //db connection
+    function clearfields()
+
+{
+  document.getElementById("name").value=""
+  document.getElementById("email").value=""
+  document.getElementById("id").value=""
+  document.getElementById("year").value=""
+  document.getElementById("branch").value=""
   
+}
+
+
+//mail
+async function sendmail(name,email,id,cid,year,branch) {
+    document.getElementById("regbut").innerHTML="Sending mail..."
+    
+    let url = `https://api.softpage.tech/mail/mayavi?id=${cid}&name=${name}&email=${email}&confirmationid=${id}&branch=${branch}&year=${year}`;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+        document.getElementById("regbut").innerHTML="Error occured while sending you email" 
+        bed(1)
+    }
+}
+
+    //db connection
+    var db1 = new polybase.Polybase({
+    defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi",
+  })
+    const col = db1.collection("sessionReg");
+  
+  
+    async function send(name,email,id,cid,year,branch,reason) {
+      
+      var dat = new Date()
+  var date=dat.getTime()
+      try{
+      const doc = await col.create([
+        id,name,email,cid,year,branch,reason,date
+    ])
+    try{
+       k= await sendmail(atob(name),atob(email),id,atob(cid),atob(year),atob(branch))
+         console.log(k)
+    }
+    catch(err){
+        console.log(err)
+    }
+    clearfields()
+
+   
+
+
+    document.getElementById("regbut").innerHTML="Registered Successfully.\nA mail has been sent to you"
+    document.getElementById("regbut").disabled=true
+    document.getElementById("regbut").style.borderBlockColor="green"
+    document.getElementById("regbut").style.cursor="default"
+    ;
+    console.log("sent")
+      console.log(doc);}
+      catch(err){
+        console.log(err)
+        if(err=="Error: record id already exists in collection"){
+          document.getElementById("regbut").innerHTML="You have already registered."
+        }
+        else{
+          document.getElementById("regbut").innerHTML="Error occured. Please try again later."
+          console.log(err)
+      } 
+    }
+    }
     
     
     
@@ -277,27 +334,28 @@
           }
           return output;
         }
+
+
+      
       //register function
       function register() {
         document.getElementById("regbut").innerHTML="Registering..."
         console.log("fal")
         try{
-        var pass="mayavi"
-        console.log(document.getElementById("contact").value)
-        name=btoa(xor(document.getElementById("name").value, pass));
-        email=btoa(xor(document.getElementById("email").value, pass));
-        cid=btoa(xor(document.getElementById("id").value, pass));
-        id=btoa(xor("A21_"+document.getElementById("id").value, pass));
-        year=btoa(xor(document.getElementById("year").value, pass));
-        branch=btoa(xor(document.getElementById("branch").value, pass));
-        contact=btoa(xor(document.getElementById("con").value, pass));
-        reason=btoa(xor(document.getElementById("reason").value, pass));
-        console.log("hhhh")
-        send(name,email,id,cid,year,branch,contact,reason);
+           
+        var name = btoa(document.getElementById("name").value)
+        var email = btoa(document.getElementById("email").value)
+        var cid = btoa(document.getElementById("id").value)
+        var year = btoa(document.getElementById("year").value)
+        var branch = btoa(document.getElementById("branch").value)
+        var feedback = btoa("NA")
+        var id=btoa("sess2"+document.getElementById("id").value)
+        send(name,email,id,cid,year,branch,feedback);
+        console.log(name)
         return false;
         }
         catch(err){
-          console.log(err)
+          console.log(err,"hi")
           return false;
         }
         
@@ -306,7 +364,6 @@
       </script>
 
   
-<script src="pbd.min.js"></script>
 </body>
 
 </html>
