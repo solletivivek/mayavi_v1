@@ -84,7 +84,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index" >Home</a></li>
-          <li><a href="about" class="active">About Us</a></li>
+          <li><a href="about">About Us</a></li>
           <li><a href="events/">Events</a></li>
           <!-- <li><a href="projects.html">Blogs</a></li> -->
           <li><a href="team">Team</a></li>
@@ -139,7 +139,7 @@
                       </div>
                      
                       <div class="col-12 form-group"> <!-- Add class 'col-12' to make the textarea full width on small devices -->
-                        <textarea class="form-control" name="message" rows="5" id="reason" placeholder="why do you want to join mayavi" required></textarea>
+                        <textarea class="form-control" name="message" rows="5" id="reason" placeholder="feedback" value="." required></textarea>
                       </div>
                       <div class="col-12 text-center"> <!-- Add class 'col-12' to center the button on small devices -->
                         
@@ -262,6 +262,22 @@
   
 }
 
+
+//mail
+async function sendmail(name,email,id,cid,year,branch) {
+    document.getElementById("regbut").innerHTML="Sending mail..."
+    
+    let url = `https://api.softpage.tech/mail/mayavi?id=${cid}&name=${name}&email=${email}&confirmationid=${id}&branch=${branch}&year=${year}`;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+        document.getElementById("regbut").innerHTML="Error occured while sending you email" 
+        bed(1)
+    }
+}
+
     //db connection
     var db1 = new polybase.Polybase({
     defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi",
@@ -277,7 +293,18 @@
       const doc = await col.create([
         id,name,email,cid,year,branch,reason,date
     ])
+    try{
+       k= await sendmail(atob(name),atob(email),id,atob(cid),atob(year),atob(branch))
+         console.log(k)
+    }
+    catch(err){
+        console.log(err)
+    }
     clearfields()
+
+   
+
+
     document.getElementById("regbut").innerHTML="Registered Successfully.\nA mail has been sent to you"
     document.getElementById("regbut").disabled=true
     document.getElementById("regbut").style.borderBlockColor="green"
