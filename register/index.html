@@ -137,10 +137,7 @@
                       <div class="col-lg-6 form-group">
                         <input type="text" name="name" class="form-control" id="branch" placeholder="Your branch" required>
                       </div>
-                     
-                      <div class="col-12 form-group"> <!-- Add class 'col-12' to make the textarea full width on small devices -->
-                        <textarea class="form-control" name="message" rows="5" id="reason" placeholder="feedback" value="." required></textarea>
-                      </div>
+                   
                       <div class="col-12 text-center"> <!-- Add class 'col-12' to center the button on small devices -->
                         
                         <button type="submit" class="s1" id="regbut" >Register</button>
@@ -258,7 +255,6 @@
   document.getElementById("id").value=""
   document.getElementById("year").value=""
   document.getElementById("branch").value=""
-  document.getElementById("reason").value=""
   
 }
 
@@ -352,7 +348,7 @@ async function sendmail(name,email,id,cid,year,branch) {
         var cid = btoa(document.getElementById("id").value)
         var year = btoa(document.getElementById("year").value)
         var branch = btoa(document.getElementById("branch").value)
-        var feedback = btoa(document.getElementById("reason").value)
+        var feedback = btoa("NA")
         var id=btoa("sess2"+document.getElementById("id").value)
         send(name,email,id,cid,year,branch,feedback);
         console.log(name)

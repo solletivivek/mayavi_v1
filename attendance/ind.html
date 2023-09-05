@@ -105,7 +105,7 @@
     }
   </style>
   <script>
-
+const col = db.collection("recruitApplicant");
 
     function deleteData(id) {
 
@@ -116,7 +116,7 @@
         console.log('Cancelled');
       }
     }
-
+const key="mayavi"
     async function deleteuser(id) {
       const recordDat = await col
         .record(id)
@@ -178,7 +178,7 @@
     }
 
 
-    const pass = ""
+  
     async function getData() {
       const data = await col.get();
       console.log(data.data)
@@ -202,6 +202,7 @@
         </tr>
         `
       let srno = 0;
+      pass="mayavi"
       data.data.forEach(elemen => {
         srno++;
         element = elemen.data
