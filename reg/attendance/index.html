@@ -123,13 +123,12 @@ var db1 = new polybase.Polybase({
 
 
 
-  s = prompt("Enter the key")
+  s = "y21"
 {
     if(s=="y21")
     {
-        function onScanSuccess(qrCodeMessage) {
+    function onScanSuccess(qrCodeMessage) {
     const data = JSON.parse(qrCodeMessage);
-    document.getElementById("postAttendance").innerHTML="Post Attendance"
     document.getElementById("name").textContent = data.name || "N/A";
     document.getElementById("id").textContent = data.id || "N/A";
     document.getElementById("branch").textContent = data.branch || "N/A";
