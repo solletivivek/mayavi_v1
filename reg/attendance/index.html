@@ -114,7 +114,7 @@ var db1 = new polybase.Polybase({
     catch(err){
         console.log(err)
         if(err="Error: record id already exists in collection"){
-          document.getElementById("postAttendance").innerHTML="Attendance Posted Already"
+          document.getElementById("postAttendance").innerHTML="Attendance Saved"
         }
     }
 }
@@ -129,6 +129,7 @@ var db1 = new polybase.Polybase({
     {
     function onScanSuccess(qrCodeMessage) {
     const data = JSON.parse(qrCodeMessage);
+    document.getElementById("postAttendance").innerHTML="Post Attendance"
     document.getElementById("name").textContent = data.name || "N/A";
     document.getElementById("id").textContent = data.id || "N/A";
     document.getElementById("branch").textContent = data.branch || "N/A";
