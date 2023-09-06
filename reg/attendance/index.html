@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Development Session - 2 </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/@polybase/client@0.6.6/dist/bundle.min.js"></script>
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <style>
+    body {
+      background-color: #333;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #444;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #reader {
+      max-width: 80%; 
+     
+      border-radius: 10px;
+      overflow: hidden; /* Hide overflow */
+    }
+
+    .result {
+      background-color: #000000;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: center;
+      border: 1px solid silver
+    }
+
+    select {
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      margin-top: 10px;
+      width: 100%;
+      background-color: #666;
+      color: #fff;
+    }
+
+    .stop-scan-button {
+      background-color: #d9534f;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .stop-scan-button:hover {
+      background-color: #c9302c;
+    }
+
+    /* Remove the "Built by HTML5QR" text */
+    .html5-qr-code-top-text {
+      display: none;
+    }
+
+    
+  </style>
+</head>
+<body>
+<h1>Game Development Session - 2</h1>
+<div class="container">
+  <div id="reader"></div>
+  <div style="padding: 20px;">
+    <h4 style="color: white;">Scan Details</h4>
+    <div id="result" class="result">
+      <p><strong>Name:</strong> <span id="name"></span></p>
+      <p><strong>ID:</strong> <span id="id"></span></p>
+      <p><strong>Branch:</strong> <span id="branch"></span></p>
+      <p><strong>Year:</strong> <span id="year"></span></p>
+    </div>
+    <button id="postAttendance"  hidden class="stop-scan-button">Post Attendance</button>
+  </div>
+ 
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.0/html5-qrcode.min.js'></script>
+<script>
+//db
+var db1 = new polybase.Polybase({
+    defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v2",
+  })
+    const col = db1.collection("sessionAttendance");
+    async function send(id,name,cid,year,branch) {
+            try{
+      const doc = await col.create([
+        id,name,cid,year,branch
+    ])
+    documnet.getElementById("postAttendance").innerHTML="Attendance Posted Successfully"
+    document.getElementById("postAttendance").style.backgroundColor="green"
+      }
+    catch(err){
+        console.log(err)
+        if(err="Error: record id already exists in collection"){
+          document.getElementById("postAttendance").innerHTML="Attendance Posted Already"
+        }
+    }
+}
+
+
+
+
+
+  s = prompt("Enter the key")
+{
+    if(s=="y21")
+    {
+        function onScanSuccess(qrCodeMessage) {
+    const data = JSON.parse(qrCodeMessage);
+    document.getElementById("postAttendance").innerHTML="Post Attendance"
+    document.getElementById("name").textContent = data.name || "N/A";
+    document.getElementById("id").textContent = data.id || "N/A";
+    document.getElementById("branch").textContent = data.branch || "N/A";
+    document.getElementById("year").textContent = data.year || "N/A";
+    document.getElementById("postAttendance").hidden = false;
+    document.getElementById("postAttendance").disabled = false;
+    document.getElementById("postAttendance").addEventListener("click", () => {
+      send(btoa("gs2-"+data.id),btoa(data.name),btoa(data.id),btoa(data.year),btoa(data.branch))
+    });
+  }
+
+  function onScanError(errorMessage) {
+    console.log(errorMessage);  }
+
+  var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
+    fps: 30, 
+    qrbox: 200 
+  });
+
+  html5QrCodeScanner.render(onScanSuccess, onScanError);
+ 
+  html5QrCodeScanner.listCameras().then((cameras) => {
+    const cameraSelect = document.getElementById("camera-select");
+    cameras.forEach((camera) => {
+      const option = document.createElement("option");
+      option.value = camera.id;
+      option.text = camera.label;
+      cameraSelect.appendChild(option);
+    });
+  });
+
+  document.getElementById("stop-scan").addEventListener("click", () => {
+    html5QrCodeScanner.stop().then(() => {
+      console.log("Scanning stopped.");
+    });
+  });
+
+    }
+    else{
+        alert("Wrong Key , This Window will be closed")
+        window.close()
+    }
+}
+ 
+
+
+</script>
+
+</body>
+</html>

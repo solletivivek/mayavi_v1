@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-741QDCWYD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-741QDCWYD7');
+</script>
+  <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Reg</title>
+  <script src="https://cdn.jsdelivr.net/npm/@polybase/client@0.6.6/dist/bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    #export-button {
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 50;
+      margin-top: 20px;
+      border: 2px solid rgb(0, 0, 0);
+
+    }
+
+    #export-button:hover {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+      border: 2px solid rgb(255, 255, 255);
+      transition: 1000ms;
+
+    }
+
+    #reason {
+
+      display: none;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      padding-left: 10%;
+    }
+
+    .content {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 10px;
+      width: 20%;
+      max-width: max-content;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .button-container {
+      margin-bottom: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+  <script>
+
+
+pasa='eTIx'
+function setCookie(cname,cvalue,exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    location.reload();
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function checkCookie() {
+    let user = getCookie("passgm");
+    if (user != "" && user.localeCompare(atob(pasa))==0) {
+       fill()
+    } 
+    else {
+      password=prompt("Enter Password to access this page")
+console.log(password)
+console.log(password.localeCompare(atob(pasa)))
+if(password.localeCompare(atob(pasa)))
+{
+  alert("Not Authorized/nThis page will be closed")
+  window.close()
+}
+else{
+  alert("Authorized Successfully")
+  setCookie("passgm",password,30)
+  fill()
+
+}
+       
+    }
+  }
+
+
+
+
+
+
+
+
+  const db = new polybase.Polybase({
+    defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v2",
+
+});
+
+
+const col = db.collection("sessionAttendance");
+
+    function deleteData(id) {
+
+      if (confirm('Are you sure you want to delete user ')) {
+        deleteuser(id);
+        console.log('Id Deleted Successfully');
+      } else {
+        console.log('Cancelled');
+      }
+    }
+    async function deleteuser(id) {
+      const recordDat = await col
+        .record(id)
+        .call("del", []);
+      console.log(recordDat)
+      alert("Deleted Successfully")
+      location.reload();
+    }
+
+    function deleteRow(r) {
+      var i = r.parentNode.parentNode.rowIndex;
+      document.getElementById("augreg").deleteRow(i);
+
+    }
+
+    function exportTableToExcel(tableID, filename = '') {
+      date=new Date();
+     var fd = `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+        var ft = `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+      console.log(fd,ft)
+      if (filename == '') {
+        filename = tableID;
+      }
+      console.log(fd)
+      ft=ft.replace(/:/g,".");
+      fd=fd.replace(/:/g,"/");
+
+      var downloadLink;
+      var dataType = 'application/vnd.ms-excel';
+      var tableSelect = document.getElementById(tableID);
+      var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+      filename = fd+"-"+ft+"-"+ 'mayavireg.xls';
+      downloadLink = document.createElement("a");
+
+      document.body.appendChild(downloadLink);
+
+      if (navigator.msSaveOrOpenBlob) {
+        var blob = new Blob(['\ufeff', tableHTML], {
+          type: dataType
+        });
+        navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        downloadLink.download = filename;
+        downloadLink.click();
+      }
+    }
+
+
+   
+
+
+  
+    async function getData() {
+      const data = await col.get();
+      console.log(data.data)
+      let html1 = `
+      <div class="content">
+    <h1>Game Development session-2 Registrations</h1>
+  </div>
+  <table style="width: 90%;" id="augreg">
+        <tr>
+            <th>Sr. No.</th>
+            <th style="display: none;">dbid</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Branch</th>
+            <th id="delete">Delete</th>
+        </tr>
+        `
+      let srno = 0;
+      data.data.forEach(elemen => {
+        srno++;
+        element = elemen.data
+        console.log(element)
+        cid = (atob(element.cid))
+        name = (atob(element.name))
+        year = (atob(element.year))
+        branch = (atob(element.branch))
+        dbid = (atob(element.id))
+      
+
+        html1 += `<tr>
+        <td>${srno}</td>
+        <td style="display: none;">${dbid}</td>    
+        <td>${cid}</td>
+        <td>${name}</td>
+        <td>${year}</td>
+        <td>${branch}</td>
+        <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
+        </tr>`
+      });
+      html1 = html1 + `</table>
+    <button id="export-button" onclick="exportTableToExcel('augreg','mayavi_aug_reg')">Export to Excel</button>`
+      document.getElementById("reg").innerHTML = html1
+
+    }
+
+    function fill() {
+      getData()
+    }
+
+    checkCookie()
+
+  </script>
+  <style>
+    .centre {
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+ 
+
+  <div id="reg"></div>
+
+
+
+
+</body>
+
+</html>
