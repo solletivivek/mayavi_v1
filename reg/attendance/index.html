@@ -64,6 +64,7 @@
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
+
       cursor: pointer;
       margin-top: 20px;
     }
@@ -91,6 +92,7 @@
       <p><strong>ID:</strong> <span id="id"></span></p>
       <p><strong>Branch:</strong> <span id="branch"></span></p>
       <p><strong>Year:</strong> <span id="year"></span></p>
+      <p><strong>Mail : </strong> <span id="mail"></span></p>
     </div>
     <button id="postAttendance"  hidden class="stop-scan-button">Post Attendance</button>
   </div>
@@ -103,18 +105,23 @@ var db1 = new polybase.Polybase({
     defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v2",
   })
     const col = db1.collection("sessionAttendance");
-    async function send(id,name,cid,year,branch) {
+    async function send(id,name,cid,year,branch,mail) {
+      var dat = new Date()
+      var date=dat.getTime()
             try{
       const doc = await col.create([
-        id,name,cid,year,branch
+        id,name,cid,year,branch,mail,date
     ])
     documnet.getElementById("postAttendance").innerHTML="Attendance Posted Successfully"
-    document.getElementById("postAttendance").style.backgroundColor="green"
+    document.getElementById("postAttendance").style.backgroundColor="transperant"
+    document.getElementById("postAttendance").style.color="green"
       }
     catch(err){
         console.log(err)
         if(err="Error: record id already exists in collection"){
           document.getElementById("postAttendance").innerHTML="Attendance Saved"
+          document.getElementById("postAttendance").style.color="green"
+          document.getElementById("postAttendance").style.backgroundColor="transperant"
         }
     }
 }
@@ -136,6 +143,10 @@ var db1 = new polybase.Polybase({
     document.getElementById("year").textContent = data.year || "N/A";
     document.getElementById("postAttendance").hidden = false;
     document.getElementById("postAttendance").disabled = false;
+    document.getElementById("postAttendance").style.color="black"
+    document.getElementById("postAttendance").style.backgroundColor="white"
+    document.getElementById("mail").textContent = data.mail || "N/A";
+
     document.getElementById("postAttendance").addEventListener("click", () => {
       send(btoa("gs2-"+data.id),btoa(data.name),btoa(data.id),btoa(data.year),btoa(data.branch))
     });
