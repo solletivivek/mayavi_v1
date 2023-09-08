@@ -145,7 +145,7 @@ var db1 = new polybase.Polybase({
     document.getElementById("postAttendance").disabled = false;
     document.getElementById("postAttendance").style.color="black"
     document.getElementById("postAttendance").style.backgroundColor="white"
-    document.getElementById("mail").textContent = data.mail || "N/A";
+    document.getElementById("mail").textContent = data.email || "N/A";
 
     document.getElementById("postAttendance").addEventListener("click", () => {
       send(btoa("gs2-"+data.id),btoa(data.name),btoa(data.id),btoa(data.year),btoa(data.branch))
