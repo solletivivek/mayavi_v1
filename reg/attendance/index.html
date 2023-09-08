@@ -123,10 +123,13 @@ var db1 = new polybase.Polybase({
         console.log(err)
         if(err="Error: record id already exists in collection"){
           document.getElementById("postAttendance").innerHTML="Attendance Already Posted"
-          document.getElementById("postAttendance").style.color="Red"
+          document.getElementById("postAttendance").style.color="orrange"
           document.getElementById("postAttendance").style.backgroundColor="transperant"
         }
         else{
+          document.getElementById("postAttendance").style.color="red"
+          document.getElementById("postAttendance").style.backgroundColor="transperant"
+
           document.getElementById("postAttendance").innerHTML="An error occured , Please try again later or contact admin"
         }
     }
