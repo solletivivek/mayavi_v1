@@ -29,6 +29,7 @@
       background-color: #444;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      
     }
 
     #reader {
@@ -44,8 +45,9 @@
       padding: 20px;
       border-radius: 10px;
       margin-top: 20px;
-      text-align: center;
-      border: 1px solid silver
+      text-align: left;
+      border: 1px solid silver;
+      width: 300px;
     }
 
     select {
@@ -84,15 +86,15 @@
 <body>
 <h1>Game Development Session - 2</h1>
 <div class="container">
-  <div id="reader"></div>
+  <div id="reader" class="reader"></div>
   <div style="padding: 20px;">
     <h4 style="color: white;">Scan Details</h4>
     <div id="result" class="result">
-      <p><strong>Name:</strong> <span id="name"></span></p>
-      <p><strong>ID:</strong> <span id="id"></span></p>
-      <p><strong>Branch:</strong> <span id="branch"></span></p>
-      <p><strong>Year:</strong> <span id="year"></span></p>
-      <p><strong>Mail : </strong> <span id="mail"></span></p>
+      <p><strong>Name&nbsp;&nbsp;&nbsp;:</strong> <span id="name"></span></p>
+      <p><strong>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <span id="id"></span></p>
+      <p><strong>Branch&nbsp;:</strong> <span id="branch"></span></p>
+      <p><strong>Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong> <span id="year"></span></p>
+      <p><strong>Mail &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong> <span id="mail"></span></p>
     </div>
     <button id="postAttendance"  hidden class="stop-scan-button">Post Attendance</button>
   </div>
@@ -100,6 +102,7 @@
 </div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.0/html5-qrcode.min.js'></script>
 <script>
+  kk=0
 //db
 var db1 = new polybase.Polybase({
     defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v2",
@@ -112,26 +115,25 @@ var db1 = new polybase.Polybase({
       var dat = new Date()
       var date=dat.getTime()
             try{
+              kk++
       const doc = await col.create([
         id,name,cid,year,branch,mail,date
     ])
-    document.getElementById("postAttendance").innerHTML="Attendance Posted Successfully"
+    document.getElementById("postAttendance").innerHTML="Attendance Posted Successfully "
     document.getElementById("postAttendance").style.backgroundColor="transperant"
     document.getElementById("postAttendance").style.color="green"
+    window.location.href = "#reader";
       }
     catch(err){
         console.log(err)
-        if(err="Error: record id already exists in collection"){
-          document.getElementById("postAttendance").innerHTML="Attendance Already Posted"
-          document.getElementById("postAttendance").style.color="orrange"
+        if(err=="Error: record id already exists in collection"){
+          document.getElementById("postAttendance").innerHTML="Attendance Already Posted"+kk
+          document.getElementById("postAttendance").style.color="orange"
           document.getElementById("postAttendance").style.backgroundColor="transperant"
         }
         else{
-          document.getElementById("postAttendance").style.color="red"
-          document.getElementById("postAttendance").style.backgroundColor="transperant"
-
-          document.getElementById("postAttendance").innerHTML="An error occured , Please try again later or contact admin"
-        }
+        document.getElementById("postAttendance").innerHTML=err}
+        
     }
 }
 
@@ -155,17 +157,18 @@ var db1 = new polybase.Polybase({
     document.getElementById("postAttendance").style.color="black"
     document.getElementById("postAttendance").style.backgroundColor="white"
     document.getElementById("mail").textContent = data.email || "N/A";
-
+      window.location.href = "#result";
     document.getElementById("postAttendance").addEventListener("click", () => {
-      send(btoa("gs2-"+data.id),btoa(data.name),btoa(data.id),btoa(data.year),btoa(data.branch),btoa(data.email))
+      send(btoa("gs3-"+data.id),btoa(data.name),btoa(data.id),btoa(data.year),btoa(data.branch),btoa(data.email))
     });
+
   }
 
   function onScanError(errorMessage) {
     console.log(errorMessage);  }
 
   var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
-    fps: 30, 
+    fps: 70, 
     qrbox: 200 
   });
 
