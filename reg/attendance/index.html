@@ -105,7 +105,7 @@
   kk=0
 //db
 var db1 = new polybase.Polybase({
-    defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v2",
+  defaultNamespace: "pk/0x26b7b24287218ea9427e03112e34fb29e6603d1421903bedf5b825296f2d4f32831d76d700f243fbb768d935937675735ca28568f8604b10a33ac636a81fd9d2/mayavi_v3",
   })
     const col = db1.collection("sessionAttendance");
 
@@ -115,7 +115,7 @@ var db1 = new polybase.Polybase({
       var dat = new Date()
       var date=dat.getTime()
             try{
-              kk++
+           
       const doc = await col.create([
         id,name,cid,year,branch,mail,date
     ])
@@ -127,7 +127,7 @@ var db1 = new polybase.Polybase({
     catch(err){
         console.log(err)
         if(err=="Error: record id already exists in collection"){
-          document.getElementById("postAttendance").innerHTML="Attendance Already Posted"+kk
+          document.getElementById("postAttendance").innerHTML="Attendance Already Posted"
           document.getElementById("postAttendance").style.color="orange"
           document.getElementById("postAttendance").style.backgroundColor="transperant"
         }
@@ -168,7 +168,7 @@ var db1 = new polybase.Polybase({
     console.log(errorMessage);  }
 
   var html5QrCodeScanner = new Html5QrcodeScanner("reader", {
-    fps: 70, 
+    fps: 30, 
     qrbox: 200 
   });
 
