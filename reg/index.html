@@ -31,7 +31,7 @@
       color: rgb(0, 0, 0);
       border-radius: 5px;
       padding: 10px;
-      font-size: 20px;
+      font-size: 15px;
       cursor: pointer;
       margin-right: 50;
       margin-top: 20px;
@@ -264,8 +264,9 @@ if(confirm("Are you sure you want to delete all registrations?"))
       console.log(data.data)
       let html1 = `
       <div class="content">
-    <h1>Game Development session-2 Registrations</h1>
+    <h1>Game Development session-3 Registrations</h1>
   </div>
+  <p id="regcount">Total Registrations : ${data.data.length}</p>
   <table style="width: 90%;" id="augreg">
         <tr>
             <th>Sr. No.</th>
