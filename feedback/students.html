@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-741QDCWYD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-741QDCWYD7');
+</script>
+  <title>Mayavi-feedback</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon"  href="assets/img/favicon.ico">
+  <script src='https://cdn.jsdelivr.net/npm/@polybase/client@latest/dist/bundle.min.js'></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+<style>
+  .s1{
+    padding: 10px;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 10px;
+   background-color: transparent;
+    color: var(--color-primary);
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+  .s1:hover{
+    background-color: black;
+    color: white;
+    transition: 500ms;
+  }
+</style>
+
+
+ 
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Mayavi<span></span></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="../index.html" >Home</a></li>
+          <li><a href="../about.html" >About Us</a></li>
+          <li><a href="../events/index.html">Events</a></li>
+          <!-- <li><a h../ref="projects.html">Blogs</a></li> -->
+          <li><a href="../team.html">Team</a></li>
+
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../assets/img/projects/marathon.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Your FeedBack</h2>
+        <ol>
+          <li><a href="index">Home</a></li>
+          <li>FeedBack</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+    
+
+        
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <h1 class="text-center">FeedBack</h1> <!-- Added h1 tag above the form -->
+                <div class="row gy-4 mt-1">
+                    <form name="submit-to-google-sheet" class="php-email-form">
+                        <div class="row gy-4">
+                      <div class="col-lg-6 form-group">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
+                      </div>
+                      <div class="col-lg-6 form-group">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your college mail" required>
+                      </div>
+                      <div class="col-lg-6 form-group">
+                        <input type="number" name="id" class="form-control" id="id" placeholder="Your Id number" required>
+                      </div>
+                      <div class="col-lg-6 form-group">
+                        <input type="number" name="year" class="form-control" id="year" placeholder="which year" required>
+                      </div>        
+                      <div class="col-lg-6 form-group">
+                        <input type="text" name="branch" class="form-control" id="branch" placeholder="Your branch" required>
+                      </div>
+                      <div class="col-lg-6 form-group">
+                        <input type="number" name="name" class="form-control" id="con" placeholder="Contact Number" required>
+                      </div>
+                      <div class="form-group">
+                        <textarea class="form-control" name="feedback" rows="5" size="150" placeholder="Your FeedBack about the session" required></textarea>
+                      </div>
+                     
+                      <div class="text-center"><button type="submit" value="submit">Send Message</button></div>
+                    </form>
+                  </div><!-- End Contact Form -->
+        
+                </div><!-- End Contact Form -->
+              </div>
+            </div>
+          </div>
+          
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    
+  <div class="footer-content position-relative">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-info">
+            <h3>Mayavi</h3>
+            <p>
+              KL University <br>
+              Green Fields, Vaddeswaram, Guntur District<br><br>
+              <strong>Email : </strong><a href="mailto:support@klefmayavi.tech">support@klefmayavi.tech</a><br>
+            </p>
+            <div class="social-links d-flex mt-3">
+              <a href="https://t.me/+q38bOXvcREBmMGFl" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
+              <a href="https://www.instagram.com/klef.mayavi/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/mayavi-technology-club/mycompany/" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              <a href="https://discord.com/invite/UrWKGFffhG" class="d-flex align-items-center justify-content-center"><i class="bi bi-discord"></i></a>
+              <a href="https://www.youtube.com/channel/UCbDBefAKb5m5FigI2j0UQPQ" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about.html">About us</a></li>
+            <li><a href="../events">Events</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Upcomming</h4>
+          <ul>
+            <!-- <li><a href="../register/register.html">Register Here</a></li> -->
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legal text-center position-relative">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mayavi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+            <a href="../developers.html">Made with ❤️ Team</a>
+      </div>
+    </div>
+  </div>
+
+
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+
+
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+
+<script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxi-x1Drl0zhK7eOg4o0hgDFFcI_-yK6YAfGgW46OOuhPTkzyLmxtKlt02wr_LTymljVQ/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById('msg')
+    
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                   msg.innerHTML = "Thanks for Contacting me"
+                   setTimeout(function(){ msg.innerHTML = "" }, 3000);
+                })
+                form.reset()
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+
+ 
+</body>
+
+</html>
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Style for stars */
+        .fa-star {
+            font-size: 36px;
+            cursor: pointer;
+        }
+        .checked {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h2>Star Rating</h2>
+    <span class="fa fa-star" onclick="rateStar(1)"></span>
+    <span class="fa fa-star" onclick="rateStar(2)"></span>
+    <span class="fa fa-star" onclick="rateStar(3)"></span>
+    <span class="fa fa-star" onclick="rateStar(4)"></span>
+    <span class="fa fa-star" onclick="rateStar(5)"></span>
+
+    <p>Selected Rating: <span id="selected-rating">0</span></p>
+
+    <script>
+        let selectedRating = 0;
+
+        function rateStar(rating) {
+            selectedRating = rating;
+            updateStarRating();
+        }
+
+        function updateStarRating() {
+            const stars = document.querySelectorAll('.fa-star');
+            stars.forEach((star, index) => {
+                if (index < selectedRating) {
+                    star.classList.add('checked');
+                } else {
+                    star.classList.remove('checked');
+                }
+            });
+
+            // Update the selected rating display
+            document.getElementById('selected-rating').textContent = selectedRating;
+        }
+    </script>
+</body>
+</html> -->
