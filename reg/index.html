@@ -278,10 +278,11 @@ if(confirm("Are you sure you want to delete all registrations?"))
       const data = await col.get();
       const secon = await data.next();
       const third=await secon.next();
+      const fourth=await third.next();
       console.log(data.data)
 
 
-alldat=[...data.data,...secon.data,...third.data]      
+alldat=[...data.data,...secon.data,...third.data,...fourth.data]      
       console.log(alldat)
       
       let html1 = ` <div class="content">
