@@ -166,7 +166,9 @@ else{
 
 
 
-const col = db.collection("sessionReg");
+  const col = db.collection("MayavaiSession");
+  const col2 = db.collection("MayaviPicdata");
+
 
     function deleteData(id) {
 
@@ -277,6 +279,7 @@ if(confirm("Are you sure you want to delete all registrations?"))
             <th>Year</th>
             <th>Branch</th>
             <th>Email</th>
+            <th>File</th>
             <th id="delete">Delete</th>
         </tr>
         `
@@ -285,12 +288,12 @@ if(confirm("Are you sure you want to delete all registrations?"))
         srno++;
         element = elemen.data
         console.log(element)
-        cid = (atob(element.cid))
-        name = (atob(element.name))
-        year = (atob(element.year))
-        branch = (atob(element.branch))
+        cid = ((element.cid))
+        name = ((element.name))
+        year = ((element.year))
+        branch = ((element.branch))
         dbid = (atob(element.id))
-        email=(atob(element.mail))
+        email=((element.mail))
         const timestampInMillis = element.date;
         const date = new Date(timestampInMillis);
 
@@ -307,6 +310,7 @@ if(confirm("Are you sure you want to delete all registrations?"))
         <td>${year}</td>
         <td>${branch}</td>
         <td>${email}</td>
+        <td><butt
         <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
         </tr>`
       });
