@@ -346,11 +346,25 @@ alldat=[...data.data,...secon.data,...third.data]
 
       html1 = html1 + `</table>
 
-      <button id="paging" onclick="paing()" ></table>
+      <button id="revelall" onclick="revealall()" >Show all images</table>
     <button id="export-button" onclick="exportTableToExcel('augreg','mayavi_submissions')">Export to Excel</button><br> <button id="export-button" onclick="deleteAll()">Delete All</button>`
       document.getElementById("reg").innerHTML = html1
 
     }
+
+    async function revealall()
+    {
+      alldat.forEach(elemen =>{
+        try{
+          console.log(elemen.data.id)
+      getfile(atob(elemen.data.id))
+        }
+        catch(e){
+          console.log(e)
+        }
+      });
+    }
+
 
 
     async function getfile(dbid)
