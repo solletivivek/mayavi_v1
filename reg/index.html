@@ -298,7 +298,7 @@ alldat=[...data.data,...secon.data,...third.data]
             <th>Year</th>
             <th>Branch</th>
             <th>Email</th>
-            <th hidden>Feedback</th>
+            <th>Feedback</th>
             <th>File</th>
 
 
@@ -336,7 +336,7 @@ alldat=[...data.data,...secon.data,...third.data]
         <td>${branch}</td>
         <td>${email}</td>
         <td >${feedback}</td>
-        <td><button >view file</button></td>
+        <td id=pic${dbid}><button onclick=getfile("${dbid}") >view file</button></td>
         <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
         </tr>`
       });
@@ -353,7 +353,20 @@ alldat=[...data.data,...secon.data,...third.data]
     }
 
 
-var cur
+    async function getfile(dbid)
+    {
+
+      const data = await col2.where("id", "==", btoa(dbid)).get();
+      const img=data.data[0].data.picdata
+      console.log(data)
+
+
+      console.log(img)
+      document.getElementById(`pic${dbid}`).innerHTML=`<img src="${img}" alt="No File Found" style="width:400px;height:200px">`
+
+
+    }
+
     function fill() {
       getData()
     }
