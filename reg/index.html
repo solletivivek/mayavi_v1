@@ -210,7 +210,7 @@ else{
       var dataType = 'application/vnd.ms-excel';
       var tableSelect = document.getElementById(tableID);
       var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-      filename = fd+"-"+ft+"-"+ 'mayavireg.xls';
+      filename = fd+"-"+ft+"-"+ 'mayavisubmission.xls';
       downloadLink = document.createElement("a");
 
       document.body.appendChild(downloadLink);
@@ -259,16 +259,24 @@ if(confirm("Are you sure you want to delete all registrations?"))
   }
     }
 
+    var alldat=[]
+
 
   
     async function getData() {
       const data = await col.get();
+      const secon = await data.next();
+      const third=await secon.next();
       console.log(data.data)
-      let html1 = `
-      <div class="content">
-    <h1>Game Development session-3 Registrations</h1>
+
+
+alldat=[...data.data,...secon.data,...third.data]      
+      console.log(alldat)
+      
+      let html1 = ` <div class="content">
+    <h1>WorkShop Submissions</h1>
   </div>
-  <p id="regcount">Total Registrations : ${data.data.length}</p>
+  <p id="regcount">Total Registrations : ${alldat.length}</p>
   <table style="width: 90%;" id="augreg">
         <tr>
             <th>Sr. No.</th>
@@ -279,12 +287,17 @@ if(confirm("Are you sure you want to delete all registrations?"))
             <th>Year</th>
             <th>Branch</th>
             <th>Email</th>
+            <th hidden>Feedback</th>
             <th>File</th>
+
+
             <th id="delete">Delete</th>
         </tr>
         `
       let srno = 0;
-      data.data.forEach(elemen => {
+
+      {
+      alldat.forEach(elemen => {
         srno++;
         element = elemen.data
         console.log(element)
@@ -294,6 +307,7 @@ if(confirm("Are you sure you want to delete all registrations?"))
         branch = ((element.branch))
         dbid = (atob(element.id))
         email=((element.mail))
+        feedback=((element.feedback))
         const timestampInMillis = element.date;
         const date = new Date(timestampInMillis);
 
@@ -310,16 +324,25 @@ if(confirm("Are you sure you want to delete all registrations?"))
         <td>${year}</td>
         <td>${branch}</td>
         <td>${email}</td>
-        <td><butt
+        <td >${feedback}</td>
+        <td><button >view file</button></td>
         <td id="delete"><button onclick="deleteData('${element.id}')">Delete</button></td>
         </tr>`
       });
+    }
+
+
+
       html1 = html1 + `</table>
-    <button id="export-button" onclick="exportTableToExcel('augreg','mayavi_aug_reg')">Export to Excel</button><br> <button id="export-button" onclick="deleteAll()">Delete All</button>`
+
+      <button id="paging" onclick="paing()" ></table>
+    <button id="export-button" onclick="exportTableToExcel('augreg','mayavi_submissions')">Export to Excel</button><br> <button id="export-button" onclick="deleteAll()">Delete All</button>`
       document.getElementById("reg").innerHTML = html1
 
     }
 
+
+var cur
     function fill() {
       getData()
     }
