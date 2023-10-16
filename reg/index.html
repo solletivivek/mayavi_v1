@@ -180,12 +180,23 @@ else{
       }
     }
     async function deleteuser(id) {
+      try{
       const recordDat = await col
         .record(id)
         .call("del", []);
       console.log(recordDat)
+
+      const recordD = await col2
+        .record(id)
+        .call("del", []);
       alert("Deleted Successfully")
+
       location.reload();
+      }
+      catch(e)
+      {
+        console/log(e)
+      }
     }
 
     function deleteRow(r) {
