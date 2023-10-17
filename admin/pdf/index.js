@@ -183,10 +183,46 @@ console.log("hello")
 const userName = document.getElementById("name");
 const submitBtn = document.getElementById("submitBtn");
 const { PDFDocument, rgb, degrees } = PDFLib;
+ 
+var stlist
 
+async function getstlist()
+{
+    const data= await  fetch("./attendance.json");
+    const tlist= await data.json();
+    return tlist;
+    
+}
+
+
+async function get()
+{
+ stlist= await getstlist()
+
+}
+
+get()
 
 submitBtn.addEventListener("click", () => {
-    const val =userName.value;
+    var vl =userName.value;
+    console.log(stlist);
+    console.log(vl);
+
+    var found=stlist.find(function(element) {   
+        return element.ID == vl; 
+    });
+
+    var val=found.Name;
+
+    
+
+    console.log(found);
+    if(found==undefined)
+    {
+        alert("Invalid ID");
+        return;
+    }
+
     if (val.trim() !== "" && userName.checkValidity()) {
         generatePDF(val);
       } else {
