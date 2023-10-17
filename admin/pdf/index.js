@@ -193,7 +193,7 @@ submitBtn.addEventListener("click", () => {
         userName.reportValidity();
       }
 });const generatePDF = async (name) => {
-    const existingPdfBytes = await fetch("Mayavi-Certificate.pdf").then((res) =>
+    const existingPdfBytes = await fetch("cert.pdf").then((res) =>
         res.arrayBuffer()
     );
 
