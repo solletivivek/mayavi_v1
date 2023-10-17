@@ -1,29 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Generator using javascript</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png"/>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-741QDCWYD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-741QDCWYD7');
+</script>
+  <title>Mayavi-feedback</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon"  href="assets/img/favicon.ico">
+  <script src='https://cdn.jsdelivr.net/npm/@polybase/client@latest/dist/bundle.min.js'></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="../vendor/aos/aos.css" rel="stylesheet">
+  <link href="../vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../css/main.css" rel="stylesheet">
+<style>
+  .s1{
+    padding: 10px;
+    width: fit-content;
+    border: 2px solid black;
+    border-radius: 10px;
+   background-color: transparent;
+    color: var(--color-primary);
+    font-size: 20px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+  .s1:hover{
+    background-color: black;
+    color: white;
+    transition: 500ms;
+  }
+</style>
+
+
+ 
 </head>
+
 <body>
 
-    <header>
-        <div class="heading_text">
-           </div>
-      
-    </header>
-    <main>
-        <div>
-            <input type="number" name="Name" class="question" id="name" required autocomplete="off" />
-            <input type="submit" id="submitBtn" value="Get Certificate"/>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>Mayavi<span></span></h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href=".../index.html" >Home</a></li>
+          <li><a href="../about.html" >About Us</a></li>
+          <li><a href="../events/index.html">Events</a></li>
+          <!-- <li><a h../ref="projects.html">Blogs</a></li> -->
+          <li><a href="../team.html">Team</a></li>
+
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('../projects/marathon.jpg');">
+      <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+        <h2>Your FeedBack</h2>
+        <ol>
+          <li><a href="index">Home</a></li>
+          <li>FeedBack</li>
+        </ol>
+
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+    
+
+        
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <h1 class="text-center">FeedBack</h1> <!-- Added h1 tag above the form -->
+                <div class="row gy-4 mt-1">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                          <div class="col-lg-6">
+                            <form name="submit-to-google-sheet" class="php-email-form">
+                              <div class="form-group">
+                                <input type="number" name="name" class="form-control" id="name" placeholder="Your KL ID number" required>
+                              </div>
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div><!-- End Contact Form -->
+        
+                </div><!-- End Contact Form -->
+              </div>
+            </div>
+          </div>
+          
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    
+  <div class="footer-content position-relative">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-info">
+            <h3>Mayavi</h3>
+            <p>
+              KL University <br>
+              Green Fields, Vaddeswaram, Guntur District<br><br>
+              <strong>Email : </strong><a href="mailto:support@klefmayavi.tech">support@klefmayavi.tech</a><br>
+            </p>
+            <div class="social-links d-flex mt-3">
+              <a href="https://t.me/+q38bOXvcREBmMGFl" class="d-flex align-items-center justify-content-center"><i class="bi bi-telegram"></i></a>
+              <a href="https://www.instagram.com/klef.mayavi/" class="d-flex align-items-center justify-content-center"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/mayavi-technology-club/mycompany/" class="d-flex align-items-center justify-content-center"><i class="bi bi-linkedin"></i></a>
+              <a href="https://discord.com/invite/UrWKGFffhG" class="d-flex align-items-center justify-content-center"><i class="bi bi-discord"></i></a>
+              <a href="https://www.youtube.com/channel/UCbDBefAKb5m5FigI2j0UQPQ" class="d-flex align-items-center justify-content-center"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
         </div>
-    </main>
-    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
-    <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
-    <script src="filesaver.js"></script>
-    <script src="index.js"></script>
+        
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../about.html">About us</a></li>
+            <li><a href="../events">Events</a></li>
+            <li><a href="../team.html">Team</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-2 footer-links">
+          <h4>Upcomming</h4>
+          <ul>
+            <!-- <li><a href="../register/register.html">Register Here</a></li> -->
+            
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legal text-center position-relative">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mayavi</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+            <a href="../developers.html">Made with ❤️ Team</a>
+      </div>
+    </div>
+  </div>
+
+
+  </footer>
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/aos/aos.js"></script>
+  <script src="../vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../js/main.js"></script>
+ 
 </body>
+
 </html>
