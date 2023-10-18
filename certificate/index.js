@@ -180,8 +180,7 @@
 
   
 console.log("hello")
-const userName = document.getElementById("name");
-const submitBtn = document.getElementById("submitBtn");
+const userName = document.getElementById("idno");
 const { PDFDocument, rgb, degrees } = PDFLib;
  
 var stlist
@@ -203,18 +202,16 @@ async function get()
 
 get()
 
-submitBtn.addEventListener("click", () => {
-    var vl =userName.value;
+function getCert(){
+    var vl =document.getElementById("idno").value;
     console.log(stlist);
     console.log(vl);
 
     var found=stlist.find(function(element) {   
-        return element.ID == vl; 
-    });
+      return element.ID == vl; 
+  });  
+    console.log(found)
 
-    var val=found.Name;
-
-    
 
     console.log(found);
     if(found==undefined)
@@ -222,13 +219,21 @@ submitBtn.addEventListener("click", () => {
         alert("Invalid ID");
         return;
     }
+    var val=found.Name;
+
 
     if (val.trim() !== "" && userName.checkValidity()) {
         generatePDF(val);
       } else {
         userName.reportValidity();
       }
-});const generatePDF = async (name) => {
+}
+
+
+
+
+
+const generatePDF = async (name) => {
     const existingPdfBytes = await fetch("cert.pdf").then((res) =>
         res.arrayBuffer()
     );
@@ -274,6 +279,6 @@ submitBtn.addEventListener("click", () => {
 
     const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
     console.log(pdfDataUri);
-    saveAs(pdfDataUri, "newcertificate.pdf");
+    saveAs(pdfDataUri, "Mayavi-Workshop-Participation_Certificate.pdf");
 };
     

@@ -19,11 +19,11 @@
   <script src="https://charan-31094.github.io/ReqFiles/stopdebug.js" defer></script>
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/mayavi_v1/assets/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/mayavi_v1//assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/mayavi_v1/assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon"  href="/mayavi_v1/assets/img/favicon.ico">
+  <link rel="icon"  href="/assets/img/favicon.ico">
   <script src='https://cdn.jsdelivr.net/npm/@polybase/client@latest/dist/bundle.min.js'></script>
 
   <!-- Google Fonts -->
@@ -33,15 +33,15 @@
 
   <!-- Vendor CSS Files -->
   
-  <link href="/mayavi_v1/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/mayavi_v1/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/mayavi_v1/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="/mayavi_v1/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/mayavi_v1/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/mayavi_v1/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="/mayavi_v1/assets/css/main.css" rel="stylesheet">
+  <link href="/assets/css/main.css" rel="stylesheet">
 <style>
   .s1{
     padding: 10px;
@@ -71,7 +71,7 @@
   <header id="header" class="header d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="/mayavi_v1/index.html" class="logo d-flex align-items-center">
+      <a href="/index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Mayavi<span></span></h1>
@@ -81,13 +81,13 @@
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="/mayavi_v1/index.html" >Home</a></li>
-          <li><a href="/mayavi_v1/about.html" >About Us</a></li>
-          <li><a href="/mayavi_v1/events/index.html">Events</a></li>
+          <li><a href="/index.html" >Home</a></li>
+          <li><a href="/about.html" >About Us</a></li>
+          <li><a href="/events/index.html">Events</a></li>
           <!-- <li><a h../ref="projects.html">Blogs</a></li> -->
-          <li><a href="/mayavi_v1/team.html">Team</a></li>
+          <li><a href="/team.html">Team</a></li>
 
-          <li><a href="/mayavi_v1/contact.html">Contact</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
     </div>
@@ -96,12 +96,12 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/mayavi_v1/assets/img/projects/marathon.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/projects/marathon.jpg');">
       <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
 
         <h2>Download Your E-certificate</h2>
         <ol>
-          <li><a href="/mayavi_v1/index">Home</a></li>
+          <li><a href="/index">Home</a></li>
           <li>Event Participation</li>
         </ol>
 
@@ -116,19 +116,19 @@
         <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8">
-                <h1 class="text-center">certificate</h1> <!-- Added h1 tag above the form -->
+                <h1 class="text-center">Certificate</h1> <!-- Added h1 tag above the form -->
                 <div class="row gy-4 mt-1">
                     <div class="container">
                         <div class="row justify-content-center">
                           <div class="col-lg-6">
-                            <form name="submit-to-google-sheet" class="php-email-form">
+                            <div  class="php-email-form">
                               <div class="form-group">
-                                <input type="number" name="name" class="form-control" id="name" placeholder="Your KL ID number" required>
+                                <input type="number" name="id" class="form-control" id="idno" placeholder="Your KL ID number" required>
                               </div>
                               <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Download</button>
+                                <button type="submit" onclick="getCert()" id="submitBtn" class="btn btn-primary">Download</button>
                               </div>
-                            </form>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -211,17 +211,23 @@
 
   <div id="preloader"></div>
 
+  <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js" defer></script>
+  <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
+  <script src="./pdflib.js"></script>
+
+
+
   <!-- Vendor JS Files -->
-  <script src="/mayavi_v1/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/mayavi_v1/assets/vendor/aos/aos.js"></script>
-  <script src="/mayavi_v1/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="/mayavi_v1/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/mayavi_v1/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/mayavi_v1/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="/mayavi_v1/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="/mayavi_v1/assets/js/main.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="./index.js"></script>
  
 </body>
 
