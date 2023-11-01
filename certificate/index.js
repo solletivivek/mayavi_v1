@@ -234,14 +234,14 @@ function getCert(){
 
 
 const generatePDF = async (name) => {
-    const existingPdfBytes = await fetch("cert.pdf").then((res) =>
+    const existingPdfBytes = await fetch("cert1.pdf").then((res) =>
         res.arrayBuffer()
     );
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     pdfDoc.registerFontkit(fontkit);
 
-    const fontBytes = await fetch("font.ttf").then((res) =>
+    const fontBytes = await fetch("font1.ttf").then((res) =>
         res.arrayBuffer()
     );
 
@@ -253,7 +253,7 @@ const generatePDF = async (name) => {
     const pageWidth = firstPage.getSize().width;
     const pageHeight = firstPage.getSize().height;
 
-    let textSize = 85;
+    let textSize = 49;
     const maxSize = 90; 
 
     let textWidth = SanChezFont.widthOfTextAtSize(name, textSize);
@@ -266,8 +266,8 @@ const generatePDF = async (name) => {
         textWidth = SanChezFont.widthOfTextAtSize(name, textSize);
     }
 
-    const x = (pageWidth - textWidth) / 2;
-    const y = (pageHeight - textSize) / 2;
+    const x = (pageWidth - textWidth) / 2+27;
+    const y = (pageHeight - textSize) / 2-18;
 
     firstPage.drawText(name, {
         x: x,
