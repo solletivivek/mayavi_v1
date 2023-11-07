@@ -266,6 +266,7 @@ const generatePDF = async (name) => {
         textWidth = SanChezFont.widthOfTextAtSize(name, textSize);
     }
 
+    
     const x = (pageWidth - textWidth) / 2+27;
     const y = (pageHeight - textSize) / 2-24;
 
