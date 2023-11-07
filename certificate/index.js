@@ -253,7 +253,7 @@ const generatePDF = async (name) => {
     const pageWidth = firstPage.getSize().width;
     const pageHeight = firstPage.getSize().height;
 
-    let textSize = 49;
+    let textSize = 34;
     const maxSize = 90; 
 
     let textWidth = SanChezFont.widthOfTextAtSize(name, textSize);
