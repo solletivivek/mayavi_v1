@@ -267,7 +267,7 @@ const generatePDF = async (name) => {
     }
 
     const x = (pageWidth - textWidth) / 2+27;
-    const y = (pageHeight - textSize) / 2-18;
+    const y = (pageHeight - textSize) / 2-24;
 
     firstPage.drawText(name, {
         x: x,
