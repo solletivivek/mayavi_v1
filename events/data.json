@@ -134,7 +134,7 @@
         "poster":"assets/img/projects/unreal1.jpg"
     },
     {
-        "id":"e9",
+        "id":"e10",
         "name":"Introduction to Unreal Engine",
         "des":"This is all about learning concepts in a fun-loving manner. In this session, you will be introduced to THE UNREAL ENGINE with all the basics regarding Game Development.",
         "category":"Game Development",
@@ -147,7 +147,7 @@
         "poster":"assets/img/projects/unreal1.jpg"
     },
     {
-        "id":"e9",
+        "id":"e11",
         "name":"Introduction to Unreal Engine",
         "des":"This is all about learning concepts in a fun-loving manner. In this session, you will be introduced to THE UNREAL ENGINE with all the basics regarding Game Development.",
         "category":"Game Development",
@@ -160,20 +160,7 @@
         "poster":"assets/img/projects/unreal1.jpg"
     },
     {
-        "id":"e9",
-        "name":"Introduction to Unreal Engine",
-        "des":"This is all about learning concepts in a fun-loving manner. In this session, you will be introduced to THE UNREAL ENGINE with all the basics regarding Game Development.",
-        "category":"Game Development",
-        "date":"21st October , 2022",
-        "venue":"C 3rd Floor Lab",
-        "img":[
-            "assets/img/projects/unreal1.jpg"
-           
-        ],
-        "poster":"assets/img/projects/unreal1.jpg"
-    },
-    {
-        "id":"e9",
+        "id":"e12",
         "name":"Introduction to Unreal Engine",
         "des":"This is all about learning concepts in a fun-loving manner. In this session, you will be introduced to THE UNREAL ENGINE with all the basics regarding Game Development.",
         "category":"Game Development",
@@ -185,5 +172,6 @@
         ],
         "poster":"assets/img/projects/unreal1.jpg"
     }
+
     
 ]
