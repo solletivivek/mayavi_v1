@@ -252,8 +252,11 @@
           <br>
           <div class="blog-slider">${imageSlider}</div>
           <p>${formatContent(field.content, assets)}</p>
+          if(!(field.youTubeLink==NULL))
+           <div class="Link"><p>Watch the detailed explanation video: </p>${field.youTubeLink}</div>
           <br><br>
           <div class="author-name">~ ${field.author}(${field.id})</div>
+          
         </div>`
       );
 
