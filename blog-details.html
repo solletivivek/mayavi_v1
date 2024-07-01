@@ -247,21 +247,26 @@
       imageSlider += '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>';
 
       blogContent.append(
-        `<div class="blog-item">
-          <h2 style="text-align:center;">${field.title}</h2>
-          <br>
-          <div class="blog-slider">${imageSlider}</div>
-          <p>${formatContent(field.content, assets)}</p>
-          if(!(field.youTubeLink==NULL))
-        </div>`
-      );
-  if(!(field.youTubeLink==NULL)){
-    blogContent.append(
-      `<div class="Link"><p>Watch the detailed explanation video: </p>${field.youTubeLink}</div>
-          <br><br>
-          <div class="author-name">~ ${field.author}(${field.id})</div>`
-    );
-  }
+  `<div class="blog-item">
+    <h2 style="text-align:center;">${field.title}</h2>
+    <br>
+    <div class="blog-slider">${imageSlider}</div>
+    <p>${formatContent(field.content, assets)}</p>
+     <br><br>
+    <div class="author-name">~ ${field.author}(${field.id})</div>
+  </div>`
+);
+
+if (field.youTubeLink !== null && field.youTubeLink !== undefined) {
+  blogContent.append(
+    `<div class="Link">
+          <p>Watch the detailed explanation video: <a href="${field.youTubeLink}" target="_blank">Click Here</a></p>
+
+    </div>`
+   
+  );
+}
+
       new Swiper('.swiper-container', {
         navigation: {
           nextEl: '.swiper-button-next',
