@@ -143,6 +143,8 @@
 
   <div id="preloader"></div>
 
+ 
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -191,10 +193,26 @@
       }
     }
 
-    function formatContent(content) {
-      return content
-        .replace(/__(.*?)__/g, '<strong>$1</strong>') // Replace __text__ with <strong>text</strong>
-        .replace(/\n/g, '<br>'); // Replace \n with <br>
+    function formatContent(content, assets) {
+      // Replace __text__ with <strong>text</strong>
+      content = content.replace(/__(.*?)__/g, '<strong>$1</strong>');
+
+      // Replace image references with <img> tags
+      content = content.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, url) => {
+        // Check if the URL is a Contentful asset ID
+        if (url.startsWith('//')) {
+          const asset = assets.find(asset => asset.fields.file.url.endsWith(url.split('/').pop()));
+          if (asset) {
+            url = `https:${asset.fields.file.url}`;
+          }
+        }
+        return `<div style="text-align: center;"><img src="${url}" alt="${alt}" class="img-fixed-center lg-trigger" data-src="${url}"></div>`;
+      });
+
+      // Replace \n with <br>
+      content = content.replace(/\n/g, '<br>');
+
+      return content;
     }
 
     function displayBlogDetails(data) {
@@ -217,27 +235,39 @@
 
       let imageSlider = '<div class="swiper-container"><div class="swiper-wrapper">';
       imageUrls.forEach(url => {
-        imageSlider += `<div class="swiper-slide"><img src="${url}" alt="Reference Image" class="img-fluid"></div>`;
+        const isImage = /\.(jpg|jpeg|png|gif)$/i.test(url);
+        const isVideo = /\.(mp4|webm|ogg)$/i.test(url);
+
+        if (isImage) {
+          imageSlider += `<div class="swiper-slide"><img src="${url}" alt="Reference Image" class="img-fluid lg-trigger" data-src="${url}"></div>`;
+        } else if (isVideo) {
+          imageSlider += `<div class="swiper-slide"><video controls class="video-fluid"><source src="${url}" type="video/mp4">Your browser does not support the video tag.</video></div>`;
+        }
       });
-      imageSlider += '</div><div class="swiper-pagination"></div></div>';
+      imageSlider += '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div></div>';
 
       blogContent.append(
         `<div class="blog-item">
           <h2 style="text-align:center;">${field.title}</h2>
-          
           <br>
           <div class="blog-slider">${imageSlider}</div>
-          <p>${formatContent(field.content)}</p>
+          <p>${formatContent(field.content, assets)}</p>
           <br><br>
           <div class="author-name">~ ${field.author}(${field.id})</div>
         </div>`
       );
 
       new Swiper('.swiper-container', {
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
+      });
+
+      // Initialize lightgallery.js on images with class 'lg-trigger'
+      lightGallery(document.querySelector('.swiper-container'), {
+        selector: '.lg-trigger',
+        plugins: [lgThumbnail, lgZoom],
       });
     }
 
@@ -254,7 +284,49 @@
       }
     });
   </script>
-
+  
+  <style>
+    .img-fixed-center {
+      display: block;
+      margin: 0 auto;
+      width: 650px; /* Set fixed width */
+      height: auto; /* Maintain aspect ratio */
+      cursor: pointer; /* Change cursor to pointer */
+    }
+    .video-fluid {
+      display: block;
+      margin: 0 auto;
+      width: 1000px; /* Set fixed width */
+      height: auto; /* Maintain aspect ratio */
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: rgb(0, 0, 0); /* Customize the color of the arrows */
+      position: absolute;
+      top: 50%;
+      width: 27px;
+      height: 44px;
+      margin-top: -22px;
+      z-index: 10;
+      cursor: pointer;
+      background-size: 27px 44px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .swiper-button-prev {
+      left: 10px;
+      right: auto;
+      background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="blue" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>');
+    }
+    .swiper-button-next {
+      right: 10px;
+      left: auto;
+      background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="blue" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>');
+    }
+    .swiper-container {
+      position: relative;
+    }
+  </style>
 </body>
 
 </html>
